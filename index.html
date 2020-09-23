@@ -170,6 +170,205 @@
             
 
   
+    <article id="post-hexo搭建github主页" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/09/23/hexo%E6%90%AD%E5%BB%BAgithub%E4%B8%BB%E9%A1%B5/" target="_blank">hexo搭建github主页</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/09/23/hexo%E6%90%AD%E5%BB%BAgithub%E4%B8%BB%E9%A1%B5/" class="archive-article-date">
+        <time datetime="2020-09-23T09:24:19.744Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="一、创建远程仓库"><a href="#一、创建远程仓库" class="headerlink" title="一、创建远程仓库"></a>一、创建远程仓库</h1><p>github主页：</p>
+<blockquote>
+<p><a href="https://beyondware.github.io/">https://beyondware.github.io</a></p>
+</blockquote>
+<p>仓库名必须与用户名相同</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/beyondware/beyondware.github.io">https://github.com/beyondware/beyondware.github.io</a></p>
+</blockquote>
+<h1 id="二、安装Node-js和Git"><a href="#二、安装Node-js和Git" class="headerlink" title="二、安装Node.js和Git"></a>二、安装Node.js和Git</h1><h1 id="三、修改cnpm镜像源"><a href="#三、修改cnpm镜像源" class="headerlink" title="三、修改cnpm镜像源"></a>三、修改cnpm镜像源</h1><blockquote>
+<p>npm install -g cnpm –registry=<a target="_blank" rel="noopener" href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a></p>
+</blockquote>
+<h1 id="四、安装Hexo"><a href="#四、安装Hexo" class="headerlink" title="四、安装Hexo"></a>四、安装Hexo</h1><p>1、安装hexo-cli</p>
+<blockquote>
+<p>cnpm install -g hexo-cli</p>
+</blockquote>
+<p>2、通过查询版本号是否安装成功</p>
+<blockquote>
+<p>hexo -v</p>
+</blockquote>
+<p>3、创建一个文件夹(例如：github)<br /><br>4、在github文件夹下，进行初始化并创建一个仓库名（与<strong>远程仓库名</strong>保持一致）</p>
+<blockquote>
+<p>hexo init beyondware.github.io</p>
+</blockquote>
+<hr>
+<p><strong>这一步可能会失败，卡住不动，删除后反复实验几次。</strong><br /><br>显示：INFO  Start blogging with Hexo!表示成功</p>
+<blockquote>
+<p>INFO  Cloning hexo-starter <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-starter.git">https://github.com/hexojs/hexo-starter.git</a><br>INFO  Install dependencies<br>added 183 packages from 421 contributors and audited 189 packages in 15.27s<br>10 packages are looking for funding<br>  run <code>npm fund</code> for details<br>found 0 vulnerabilities<br>INFO  Start blogging with Hexo!</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>切换到beyondware.github.io文件下<br>cd beyondware.github.io/</p>
+</blockquote>
+<p>5、启动</p>
+<blockquote>
+<p>hexo s</p>
+</blockquote>
+<p>或者</p>
+<blockquote>
+<p>hexo server</p>
+</blockquote>
+<p>6、在浏览器打开</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a></p>
+</blockquote>
+<p>Ctrl+C：可以终止本地服务<br /><br>7、创建一篇文章</p>
+<blockquote>
+<p>hexo n “文章标题”</p>
+</blockquote>
+<p>或者</p>
+<blockquote>
+<p>hexo new “文章标题”</p>
+</blockquote>
+<p>8、修改_config.yml配置文件</p>
+<blockquote>
+<p>type: git<br>repo: <a href="mailto:&#x67;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;</a>:beyondware/beyondware.github.io.git<br>branch: master</p>
+</blockquote>
+<p>9、安装</p>
+<blockquote>
+<p>cnpm install –save hexo-deployer-git</p>
+</blockquote>
+<p>10、部署到远程仓库</p>
+<blockquote>
+<p>hexo d</p>
+</blockquote>
+<p>或者</p>
+<blockquote>
+<p>hexo deploy</p>
+</blockquote>
+<p>显示INFO  Deploy done: git表示部署成功。<br /><br>11、非主页生成需要修改_config.yml配置文件</p>
+<blockquote>
+<p>url: 生成的访问地址<br>root: /对应的仓库名</p>
+</blockquote>
+<h1 id="五、主题更换"><a href="#五、主题更换" class="headerlink" title="五、主题更换"></a>五、主题更换</h1><p>1、安装主题，例如：</p>
+<blockquote>
+<p>cd ./themes/<br>git clone –depth=1 <a target="_blank" rel="noopener" href="https://github.com.cnpmjs.org/JoeyBling/hexo-theme-yilia-plus.git">https://github.com.cnpmjs.org/JoeyBling/hexo-theme-yilia-plus.git</a> ./yilia-plus</p>
+</blockquote>
+<p>2、修改_config.yml配置文件</p>
+<blockquote>
+<p>theme: yilia-plus</p>
+</blockquote>
+<p>3、更新</p>
+<blockquote>
+<p>cd yilia-plus/<br>git pull</p>
+</blockquote>
+<p>显示Already up to date.完成更新<br />cd到创建项目文件夹</p>
+<blockquote>
+<p>cd ../../</p>
+</blockquote>
+<p>4、清理一下</p>
+<blockquote>
+<p>hexo clean</p>
+</blockquote>
+<p>5、生成静态页面至public目录</p>
+<blockquote>
+<p>hexo g</p>
+</blockquote>
+<p>或者</p>
+<blockquote>
+<p>hexo generate</p>
+</blockquote>
+<p>6、部署到远程仓库</p>
+<blockquote>
+<p>hexo d</p>
+</blockquote>
+<p>或者</p>
+<blockquote>
+<p>hexo deploy</p>
+</blockquote>
+<p>显示INFO  Deploy done: git表示部署成功。</p>
+<h1 id="六、报错问题"><a href="#六、报错问题" class="headerlink" title="六、报错问题"></a>六、报错问题</h1><p>1、hexo init初始化时，报错：</p>
+<blockquote>
+<p>Error: target not empty</p>
+</blockquote>
+<p>解决：</p>
+<blockquote>
+<p>没有在新建文件夹github下做初始化</p>
+</blockquote>
+<p>2、hexo d推送到远程仓库时，报错：</p>
+<blockquote>
+<p>ERROR Deployer not found: git</p>
+</blockquote>
+<p>解决：</p>
+<blockquote>
+<p>cnpm install –save hexo-deployer-git</p>
+</blockquote>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/09/23/hexo%E6%90%AD%E5%BB%BAgithub%E4%B8%BB%E9%A1%B5/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
